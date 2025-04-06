@@ -3,9 +3,7 @@
 **Securely generate and encrypt EVM-compatible wallets via CLI. Perfect for offline usage.**
 
 ---
-- Address 
-- Mnemonic Phrase
-- Private Key
+
 ## ✨ Features
 
 - 🚀 One-click wallet generation (address, mnemonic, private key)
