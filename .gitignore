@@ -1,0 +1,7 @@
+# Ignore folder penyimpanan wallet
+wallets/
+# Ignore file node modules
+node_modules/
+# Ignore file environment / backup
+*.env
+*.bak
