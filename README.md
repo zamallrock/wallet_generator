@@ -72,7 +72,9 @@ Encrypted files (.enc) can still be vulnerable with weak passwords.
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![CI/CD](https://github.com/zamallrockk/soneiumswap-bot/actions/workflows/python-ci.yml/badge.svg)
+![Node.js CI](https://github.com/zamallrockk/wallet_generator/actions/workflows/nodejs-ci.yml/badge.svg)
+
+
 
 ## 🧠 Created by
 **zamallrock** – 2025
