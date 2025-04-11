@@ -1,4 +1,4 @@
-# Ignore folder penyimpanan wallet
+# Ignore folder
 wallets/
 # Ignore file node modules
 node_modules/
