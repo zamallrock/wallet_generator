@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const crypto = require("crypto");
 const ethers = require("ethers");
@@ -116,16 +117,44 @@ async function decryptWallet() {
   }
 }
 
+async function encryptExistingFile() {
+  const files = fs.readdirSync(walletsDir).filter(file => !file.endsWith('.enc'));
+  if (!files.length) return console.log("❌ Tidak ada file non-enkripsi yang ditemukan.");
+
+  console.log("\nPilih file untuk dienkripsi:");
+  files.forEach((file, idx) => console.log(`${idx + 1}. ${file}`));
+
+  let index;
+  while (true) {
+    index = await ask("Nomor file: ");
+    if (index >= 1 && index <= files.length) break;
+    console.log("❌ Pilihan tidak valid.");
+  }
+
+  const filename = files[index - 1];
+  const password = rlSync.question('Masukkan password enkripsi: ', { hideEchoBack: true });
+  const filepath = path.join(walletsDir, filename);
+  const content = fs.readFileSync(filepath, "utf8");
+  const encrypted = encrypt(content, password);
+  const newFilename = filename + ".enc";
+  const newFilepath = path.join(walletsDir, newFilename);
+  fs.writeFileSync(newFilepath, encrypted);
+  console.log(`\n✅ File terenkripsi disimpan sebagai ${newFilename}`);
+}
+
 (async () => {
   console.log("\n=== Ethereum Wallet Generator ===");
   console.log("1. Generate wallet");
   console.log("2. Dekripsi wallet");
+  console.log("3. Enkripsi file wallet yang sudah ada");
 
-  const choice = await ask("Pilih (1 atau 2): ");
+  const choice = await ask("Pilih (1, 2, atau 3): ");
   if (choice === "1") {
     await generateWallet();
   } else if (choice === "2") {
     await decryptWallet();
+  } else if (choice === "3") {
+    await encryptExistingFile();
   } else {
     console.log("❌ Pilihan tidak valid!");
   }
