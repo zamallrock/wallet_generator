@@ -27,7 +27,7 @@
 ## 🚀 Installation
 Clone this repository:
 ```bash
-git clone https://github.com/zamallrockk/wallet_generator.git
+git clone https://github.com/zamallrock/wallet_generator.git
 
 cd wallet_generator
 ```
